@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Человек</title>
+    <style type="text/css">
+        TABLE {
+            width: 300px; /* Ширина таблицы */
+            border-collapse: collapse; /* Убираем двойные линии между ячейками */
+        }
+        TD, TH {
+            padding: 3px; /* Поля вокруг содержимого таблицы */
+            border: 1px solid black; /* Параметры рамки */
+        }
+        TH {
+            background: #b0e0e6; /* Цвет фона */
+        }
+    </style>
+</head>
+<body>
+<h1>Человек</h1>
+
+<div>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Возраст</th>
+        </tr>
+
+        <tr>
+            <td th:text="${user.getId()}"></td>
+            <td th:utext="${user.getName()}"></td>
+            <td th:utext="${user.getAge()}"></td>
+        </tr>
+
+    </table>
+
+    <tr>
+        <td> <a th:href="@{/users/{id}/edit(id=${user.getId()})}" th:utext="Обновить"></a></td>
+    </tr>
+
+    <br>
+
+    <tr>
+        <td> <a th:href="@{/users/{id}/delete(id=${user.getId()})}" th:utext="Удалить"></a></td>
+    </tr>
+
+    <br>
+
+    <tr>
+        <td> <a th:href="@{/users}" th:utext="Вернуться"></a></td>
+    </tr>
+
+</div>
+
+</body>
+
+</html>
